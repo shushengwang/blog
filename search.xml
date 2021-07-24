@@ -91,6 +91,25 @@
 ]]></content>
   </entry>
   <entry>
+    <title>【LeetCode】01 两数之和</title>
+    <url>/2019/04/14/lettcode-xi-lie-yi.html</url>
+    <content><![CDATA[<h2 id="题"><a href="#题" class="headerlink" title="题"></a>题</h2><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定 nums = [2, 7, 11, 15], target = 9<br>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
+<span id="more"></span>
+<h2 id="答"><a href="#答" class="headerlink" title="答"></a>答</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; nums.length; index++) &#123;</span><br><span class="line">        <span class="keyword">let</span> element = nums[index]</span><br><span class="line">        <span class="keyword">let</span> num = target - element</span><br><span class="line">        <span class="keyword">if</span> (map[num] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> [map[num], index]</span><br><span class="line">        &#125;</span><br><span class="line">        map[element] = index</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>此题难度：Easy。</p>
+<p>最简单的方法是通过两次 for 循环暴力求解，复杂度 O(N^2)。<br>第一次循环取出一个值，第二次从当前值的后面开始循环，依次取出与第一次的值相加，若和等于 target，则直接返回。</p>
+<p>另一种方法是通过新建 map 以空间换时间，一次循环即可求出答案，复杂度 O(N)。<br>在遍历数组时，将已经出现过的数字存放在 map 中，以数值为 key，索引为 value。每次循环查看余值是否在 map 中，如果存在，则返回当前的索引和 map 中的值。当然，如果循环结束，仍未查找到，返回空数组。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>两数之和</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【LeetCode】07 整数反转</title>
     <url>/2021/07/24/leetcode-07-zheng-shu-fan-zhuan.html</url>
     <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
@@ -113,25 +132,6 @@
       </categories>
       <tags>
         <tag>整数反转</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【LeetCode】01 两数之和</title>
-    <url>/2019/04/14/lettcode-xi-lie-yi.html</url>
-    <content><![CDATA[<h2 id="题"><a href="#题" class="headerlink" title="题"></a>题</h2><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>给定 nums = [2, 7, 11, 15], target = 9<br>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
-<span id="more"></span>
-<h2 id="答"><a href="#答" class="headerlink" title="答"></a>答</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; nums.length; index++) &#123;</span><br><span class="line">        <span class="keyword">let</span> element = nums[index]</span><br><span class="line">        <span class="keyword">let</span> num = target - element</span><br><span class="line">        <span class="keyword">if</span> (map[num] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> [map[num], index]</span><br><span class="line">        &#125;</span><br><span class="line">        map[element] = index</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>此题难度：Easy。</p>
-<p>最简单的方法是通过两次 for 循环暴力求解，复杂度 O(N^2)。<br>第一次循环取出一个值，第二次从当前值的后面开始循环，依次取出与第一次的值相加，若和等于 target，则直接返回。</p>
-<p>另一种方法是通过新建 map 以空间换时间，一次循环即可求出答案，复杂度 O(N)。<br>在遍历数组时，将已经出现过的数字存放在 map 中，以数值为 key，索引为 value。每次循环查看余值是否在 map 中，如果存在，则返回当前的索引和 map 中的值。当然，如果循环结束，仍未查找到，返回空数组。</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>两数之和</tag>
       </tags>
   </entry>
 </search>
